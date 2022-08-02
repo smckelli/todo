@@ -1,0 +1,15 @@
+const connection = require('../config/connection')
+const { User } = require('../models')
+
+connection.on('open', async () => {
+  // delete all users
+  await User.deleteMany()
+  // create new user
+  await User.create({
+    username: 'Scott',
+    email: 'scott@gmail.com',
+    password: 'secretpass'
+  })
+
+  process.exit(0)
+})

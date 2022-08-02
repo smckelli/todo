@@ -1,0 +1,33 @@
+{
+  "name": "mern-gql-example",
+  "version": "1.0.0",
+  "description": "Mongo/Express/React/Node + GraphQL (Apollo)",
+  "main": "index.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server/server.js",
+    "start:dev": "concurrently \"cd server && npx nodemon server.js\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "node server/seeds/index.js",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/8ctopotamus/mern-gql-example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/8ctopotamus/mern-gql-example/issues"
+  },
+  "homepage": "https://github.com/8ctopotamus/mern-gql-example#readme",
+  "dependencies": {
+    "if-env": "^1.0.4"
+  },
+  "devDependencies": {
+    "concurrently": "^7.3.0"
+  }
+}
