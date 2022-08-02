@@ -5,7 +5,12 @@ const { ApolloServer } = require('apollo-server-express')
 const { typeDefs, resolvers } = require('./schema')
 const { authMiddleware } = require('./utils/auth')
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001;
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: authMiddleware,
+})
 
 const app = express()
 
@@ -21,14 +26,10 @@ app.get('/', (req, res) => {
 })
 
 const startApolloServer = async (typeDefs, resolvers) => {
+  await server.start()
+  server.applyMiddleware({ app })
+  
   connection.once('open', async () => {
-    const server = new ApolloServer({
-      typeDefs,
-      resolvers,
-      context: authMiddleware,
-    })
-    await server.start()
-    server.applyMiddleware({ app })
     app.listen(PORT, () => {
       console.log(`Server listening on http://localhost:${PORT}`)
       console.log(`GraphQL API available at http://localhost:${PORT}${server.graphqlPath}`)
