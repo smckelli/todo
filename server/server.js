@@ -20,16 +20,20 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'))
 })
 
-connection.once('open', async () => {
-  const server = new ApolloServer({
-    typeDefs,
-    resolvers,
-    context: authMiddleware,
+const startApolloServer = async (typeDefs, resolvers) => {
+  connection.once('open', async () => {
+    const server = new ApolloServer({
+      typeDefs,
+      resolvers,
+      context: authMiddleware,
+    })
+    await server.start()
+    server.applyMiddleware({ app })
+    app.listen(PORT, () => {
+      console.log(`Server listening on http://localhost:${PORT}`)
+      console.log(`GraphQL API available at http://localhost:${PORT}${server.graphqlPath}`)
+    })
   })
-  await server.start()
-  server.applyMiddleware({ app })
-  app.listen(PORT, () => {
-    console.log(`Server listening on http://localhost:${PORT}`)
-    console.log(`GraphQL API available at http://localhost:${PORT}${server.graphqlPath}`)
-  })
-})
+};
+
+startApolloServer(typeDefs, resolvers);
