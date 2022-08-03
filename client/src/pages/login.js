@@ -3,11 +3,11 @@ import { LOGIN } from '../utils/mutations'
 import { useMutation } from '@apollo/client'
 import Auth from '../utils/auth'
 
-const Login = () => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+const Login = (props) => {
+  const [username, setUsername] = useState({ username: ''});
+  const [password, setPassword] = useState({ password: ''});
 
-  const [login] = useMutation(LOGIN)
+  const [login] = useMutation(LOGIN);
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -58,6 +58,6 @@ const Login = () => {
       </form>
     </div>
   )
-}
+};
 
-export default Login
+export default Login;
