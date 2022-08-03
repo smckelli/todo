@@ -71,15 +71,15 @@ const resolvers = {
     },
     addTodo: async (parent, args, context) => {
       if (context.user) {
-        const toDo = await toDo.create({ ...args, username: context.user.username });
+        const newTodo = await Todo.create({ ...args, username: context.user.username });
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { todo: toDo.text } },
+          { $push: { todo: Todo.text } },
           { new: true }
         );
 
-        return toDo;
+        return newTodo;
       }
 
       throw new AuthenticationError('You need to be logged in!');

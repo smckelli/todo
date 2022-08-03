@@ -44,4 +44,14 @@ export const DELETE_USER = gql`
       email
     }
   }
+}
 `
+
+export const ADD_TODO = gql`
+  mutation addTodo($text: String!) {
+    addTodo(text: $text) {
+      _id
+      text
+    }
+  }
+`;
