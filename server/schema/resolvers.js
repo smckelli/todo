@@ -70,11 +70,11 @@ const resolvers = {
       return await User.findByIdAndDelete(args._id)
     },
     addTodo: async (parent, args, context) => {
-      if (context.user) {
+      if (context.todo) {
         const newTodo = await Todo.create({ ...args, username: context.user.username });
 
-        await User.findByIdAndUpdate(
-          { _id: context.user._id },
+        await Todo.findByIdAndUpdate(
+          { _id: args._id },
           { $push: { todo: Todo.text } },
           { new: true }
         );

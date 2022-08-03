@@ -44,7 +44,6 @@ export const DELETE_USER = gql`
       email
     }
   }
-}
 `
 
 export const ADD_TODO = gql`
