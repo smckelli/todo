@@ -62,7 +62,22 @@ const resolvers = {
     deleteUser: async (parent, args, context, info) => {
       return await User.findByIdAndDelete(args._id)
     },
-  },
-}
+    addTodo: async (parent, args, context) => {
+      if (context.user) {
+        const toDo = await toDo.create({ ...args, username: context.user.username });
 
-module.exports = resolvers
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { todo: toDo.text } },
+          { new: true }
+        );
+
+        return toDo;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    },
+  },
+};
+
+module.exports = resolvers;

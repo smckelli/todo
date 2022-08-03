@@ -3,11 +3,15 @@ const dateFormat = require('../utils/dateFormat');
 
 const toDoSchema = new Schema(
   {
-    toDoText: {
+    text: {
       type: String,
       required: 'You need to leave a task!',
       minlength: 1,
       maxlength: 280
+    },
+    complete: {
+      type: Boolean,
+      default: false
     },
     createdAt: {
       type: Date,
