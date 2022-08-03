@@ -70,17 +70,17 @@ const resolvers = {
       return await User.findByIdAndDelete(args._id)
     },
     addTodo: async (parent, args, context) => {
-      if (context.todo) {
+    
         const newTodo = await Todo.create({ ...args, username: context.user.username });
 
-        await Todo.findByIdAndUpdate(
-          { _id: args._id },
-          { $push: { todo: Todo.text } },
-          { new: true }
-        );
+        // await Todo.findByIdAndUpdate(
+        //   { _id: args._id },
+        //   { $push: { todo: Todo.text } },
+        //   { new: true }
+        // );
 
         return newTodo;
-      }
+      
 
       throw new AuthenticationError('You need to be logged in!');
     },

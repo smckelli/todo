@@ -47,10 +47,11 @@ export const DELETE_USER = gql`
 `
 
 export const ADD_TODO = gql`
-  mutation addTodo($text: String!) {
+  mutation AddTodo($text: String!) {
     addTodo(text: $text) {
       _id
       text
+      complete
     }
   }
 `;
