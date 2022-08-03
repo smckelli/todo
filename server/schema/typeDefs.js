@@ -13,12 +13,17 @@ const typeDefs = gql`
   } 
 
   type Todo {
+    _id: ID
     text: String
+    createdAt: String
+    complete: Boolean
   }
 
   type Query {
     users: [User]
     user(_id: ID, username: String, email: String): User
+    todos: [Todo]
+    todo(_id:ID, text: String, complete: Boolean): Todo
   }
   
   type Mutation {

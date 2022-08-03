@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
-const toDoSchema = new Schema(
+const todoSchema = new Schema(
   {
     text: {
       type: String,
@@ -31,6 +31,6 @@ const toDoSchema = new Schema(
 );
 
 
-const ToDo = model('ToDo', toDoSchema);
+const Todo = model('Todo', todoSchema);
 
-module.exports = ToDo;
+module.exports = Todo;

@@ -1,4 +1,4 @@
-const { User } = require('../models')
+const { User, Todo } = require('../models')
 const { signToken } = require('../utils/auth')
 const { AuthenticationError } = require('apollo-server-express')
 
@@ -24,6 +24,13 @@ const resolvers = {
         where.username = args.username
       }
       return await User.findOne(where)
+    },
+    todos: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Todo.find(params).sort({ createdAt: -1 });
+    },
+    todo: async (parent, { _id }) => {
+      return Todo.findOne({ _id });
     },
   },
   Mutation: {
