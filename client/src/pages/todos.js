@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@apollo/client'
 import { USER } from '../utils/queries'
+import { TODO } from '../utils/queries';
 import Auth from '../utils/auth'
 import AddTodoForm from '../components/addTodoForm'
 import TodoList from '../components/todoList'
