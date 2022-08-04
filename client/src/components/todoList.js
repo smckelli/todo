@@ -5,22 +5,8 @@ import { useQuery } from '@apollo/client'
 import Auth from '../utils/auth';
 import { ALL_TODOS } from '../utils/queries';
 
-const TodoList = ({ todos }) => {
-  const { id: todoId } = useParams();
 
-  const { loading, data } = useQuery(ALL_TODOS, {
-    variables: { _id: todoId },
-  });
 
-  const todo = data?.todo || {};
-
-  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Navigate to="/login" />;
-  }
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
   return (
     <>
       <h2 className="text-secondary">Todo List:</h2>
