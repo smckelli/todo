@@ -1,6 +1,6 @@
 // useQuery
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client'
 import Auth from '../utils/auth';
 import { ALL_TODOS } from '../utils/queries';
@@ -13,6 +13,10 @@ const TodoList = ({ todos }) => {
   });
 
   const todo = data?.todo || {};
+
+  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+    return <Navigate to="/login" />;
+  }
 
   if (loading) {
     return <div>Loading...</div>;
