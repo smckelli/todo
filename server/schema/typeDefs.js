@@ -34,5 +34,8 @@ const typeDefs = gql`
     addTodo(text: String!): Todo
   }
 `
+    // updateTodo(text:String): Todo
+    // deleteTodo(_id: ID): Todo
 
+    
 module.exports = typeDefs

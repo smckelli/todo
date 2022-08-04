@@ -73,7 +73,7 @@ const resolvers = {
     
         const newTodo = await Todo.create({ ...args, username: context.user.username });
 
-        await Todo.findByIdAndUpdate(
+        await User.findByIdAndUpdate(
           { _id: args._id },
           { $push: { todos: newTodo._id } },
           { new: true }
