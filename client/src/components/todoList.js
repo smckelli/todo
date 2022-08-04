@@ -1,5 +1,6 @@
 // useQuery
 import React from 'react';
+// import { TODO, ALL_TODOS } from '../utils/queries';
 
 
 const TodoList = ({ todos }) => {

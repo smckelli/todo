@@ -7,56 +7,56 @@ import TodoList from '../components/todoList'
 
 // TODO: this is just a hard-coded list of TODOs. You'll need to query the logged in user's TODOs from the database.
 const todos = [
-  {
-    _id: 1,
-    text: 'Create a Todo model',
-    complete: false,
-  },
-  {
-    _id: 2,
-    text: 'Update your GraphQL TypeDefs and Resolvers to work with Todo model',
-    complete: false,
-  },
-  {
-    _id: 3,
-    text: 'Update Client to CREATE Todos',
-    complete: false,
-  },
-  {
-    _id: 4,
-    text: 'Update Client to READ Todos from backend',
-    complete: false,
-  },
-  {
-    _id: 5,
-    text: 'Update Client to UPDATE Todos (marking Todo complete or not)',
-    complete: false,
-  },
-  {
-    _id: 6,
-    text: 'Update Client to DELETE Todos from backend',
-    complete: false,
-  },
-  {
-    _id: 97,
-    text: 'Create descriptive repository README.md',
-    complete: false,
-  },
-  {
-    _id: 98,
-    text: 'Deploy to Heroku',
-    complete: false,
-  },
-  {
-    _id: 99,
-    text: 'Record 10-minute video presentation',
-    complete: false,
-  },
-  {
-    _id: 100,
-    text: 'Example of a completed Todo',
-    complete: true,
-  },
+  // {
+  //   _id: 1,
+  //   text: 'Create a Todo model',
+  //   complete: false,
+  // },
+  // {
+  //   _id: 2,
+  //   text: 'Update your GraphQL TypeDefs and Resolvers to work with Todo model',
+  //   complete: false,
+  // },
+  // {
+  //   _id: 3,
+  //   text: 'Update Client to CREATE Todos',
+  //   complete: false,
+  // },
+  // {
+  //   _id: 4,
+  //   text: 'Update Client to READ Todos from backend',
+  //   complete: false,
+  // },
+  // {
+  //   _id: 5,
+  //   text: 'Update Client to UPDATE Todos (marking Todo complete or not)',
+  //   complete: false,
+  // },
+  // {
+  //   _id: 6,
+  //   text: 'Update Client to DELETE Todos from backend',
+  //   complete: false,
+  // },
+  // {
+  //   _id: 97,
+  //   text: 'Create descriptive repository README.md',
+  //   complete: false,
+  // },
+  // {
+  //   _id: 98,
+  //   text: 'Deploy to Heroku',
+  //   complete: false,
+  // },
+  // {
+  //   _id: 99,
+  //   text: 'Record 10-minute video presentation',
+  //   complete: false,
+  // },
+  // {
+  //   _id: 100,
+  //   text: 'Example of a completed Todo',
+  //   complete: true,
+  // },
 ]
 
 const Dashboard = () => {

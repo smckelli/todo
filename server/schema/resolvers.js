@@ -73,15 +73,14 @@ const resolvers = {
     
         const newTodo = await Todo.create({ ...args, username: context.user.username });
 
-        // await Todo.findByIdAndUpdate(
-        //   { _id: args._id },
-        //   { $push: { todo: Todo.text } },
-        //   { new: true }
-        // );
+        await Todo.findByIdAndUpdate(
+          { _id: args._id },
+          { $push: { todos: newTodo._id } },
+          { new: true }
+        );
 
         return newTodo;
       
-
       throw new AuthenticationError('You need to be logged in!');
     },
   },
