@@ -1,7 +1,7 @@
 // useMutation ADD_TODO
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client'
-import { ADD_TODO } from '../utils/mutations'
+import { ADD_TODO  } from '../utils/mutations'
 import { ALL_TODOS } from '../utils/queries';
 import Auth from '../utils/auth'
 
@@ -9,12 +9,12 @@ import Auth from '../utils/auth'
 
 function AddTodoForm() {
  const user = Auth.getLoggedInUser()
- console.log(user)
+//  console.log(user)
   const [ text, setText] = useState('');
 
   const [addTodo] = useMutation(ADD_TODO, {
     refetchQueries: [
-      {query: ALL_TODOS}, // DocumentNode object parsed with gql
+      {query: ALL_TODOS}, // Document Node object parsed with gql
       'ALL_TODOS' // Query name
     ],
 
