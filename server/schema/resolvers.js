@@ -71,7 +71,7 @@ const resolvers = {
     },
     addTodo: async (parent, args, context) => {
     
-        const newTodo = await Todo.create({ ...args, username: context.user.username });
+        const newTodo = await Todo.create({ text: args.text, username: context.user.username });
 
         await User.findByIdAndUpdate(
           { _id: args._id },
