@@ -19,9 +19,9 @@ const TodoList = ({ todos }) => {
 
   console.log(data)
 
-  if (!data.todos.length) {
-    return <h3>No Tasks Yet!</h3>;
-  }
+  // if (!data.todos.length) {
+  //   return <h3>No Tasks Yet!</h3>;
+  // }
   return (
     <>
       <h2 className="text-secondary">Todo List:</h2>
