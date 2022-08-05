@@ -83,6 +83,9 @@ const resolvers = {
       
       throw new AuthenticationError('You need to be logged in!');
     },
+    deleteTodo: async (parent, args, context, info) => {
+      return await Todo.findByIdAndDelete(args._id)
+    },
   },
 };
 

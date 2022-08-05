@@ -32,7 +32,7 @@ const typeDefs = gql`
     updateUser(_id: ID, email: String, password: String, username: String): User
     deleteUser(_id: ID): User
     addTodo(_id: ID, text: String): Todo
-    updateTodo(text:[String]): Todo
+    updateTodo(text: String): Todo
     deleteTodo(_id: ID): Todo
   }
 `

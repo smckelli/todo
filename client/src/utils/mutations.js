@@ -55,3 +55,11 @@ export const ADD_TODO = gql`
     }
   }
 `;
+
+export const DELETE_TODO = gql`
+  mutation DeleteTodo( $_id: ID ) {
+    deleteTodo( _id: $_id ) {
+      _id
+    }
+  }
+`

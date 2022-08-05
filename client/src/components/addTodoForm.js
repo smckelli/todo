@@ -36,7 +36,7 @@ function AddTodoForm() {
         });
   
         // clear form value
-        setText('');
+        setText(" ");
       } catch (e) {
         console.error(e);
       }

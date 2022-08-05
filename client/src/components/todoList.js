@@ -4,7 +4,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom'
 import {useQuery } from '@apollo/client'
 import { ALL_TODOS } from '../utils/queries';
-
+// import { DELETE_TODO } from '../utils/mutations';
 
 const TodoList = ({ todos }) => {
   const { id } = useParams()
@@ -13,6 +13,7 @@ const TodoList = ({ todos }) => {
       _id: id
     }
   });
+
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
