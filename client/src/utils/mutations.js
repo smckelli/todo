@@ -47,8 +47,8 @@ export const DELETE_USER = gql`
 `
 
 export const ADD_TODO = gql`
-  mutation AddTodo($text: String!) {
-    addTodo(text: $text) {
+  mutation AddTodo($text: String!, $_id: ID) {
+    addTodo(text: $text, _id: $_id) {
       _id
       text
       complete

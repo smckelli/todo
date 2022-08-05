@@ -2,40 +2,21 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client'
 import { ADD_TODO } from '../utils/mutations'
-import { TODO, ALL_TODOS } from '../utils/queries';
-
+import { ALL_TODOS } from '../utils/queries';
+import Auth from '../utils/auth'
 
 
 
 function AddTodoForm() {
-
+ const user = Auth.getLoggedInUser()
+ console.log(user)
   const [ text, setText] = useState('');
 
   const [addTodo] = useMutation(ADD_TODO, {
-    update(
-      cache,
-      {
-        data: { addTodo }
-      }
-    ) {
-
-      try {
-        // update me array's cache
-        const { addTodo } = cache.readQuery({ query: ALL_TODOS });
-        cache.writeQuery({
-          query: ALL_TODOS,
-          data: { todos: { ...addTodo, text: [...addTodo.text, addTodo] } },
-        });
-      } catch (e) {
-        console.warn("First 'to do' insertion by user!")
-      }
-
-      const { todos } = cache.readQuery({ query: TODO});
-      cache.writeQuery({
-        query: TODO,
-        data: { todos: [addTodo, ...todos] },
-      });
-    }
+    refetchQueries: [
+      {query: ALL_TODOS}, // DocumentNode object parsed with gql
+      'ALL_TODOS' // Query name
+    ],
 
   });
 
@@ -51,7 +32,7 @@ function AddTodoForm() {
   
       try {
         await addTodo({
-          variables: { text },
+          variables: { text, _id: user._id },
         });
   
         // clear form value

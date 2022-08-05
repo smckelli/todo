@@ -31,11 +31,11 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     updateUser(_id: ID, email: String, password: String, username: String): User
     deleteUser(_id: ID): User
-    addTodo(text: String!): Todo
+    addTodo(_id: ID, text: String!): Todo
   }
 `
     // updateTodo(text:String): Todo
     // deleteTodo(_id: ID): Todo
 
-    
+
 module.exports = typeDefs

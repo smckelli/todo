@@ -1,8 +1,10 @@
 const connection = require('../config/connection')
-const { User } = require('../models')
+const { User, Todo } = require('../models')
+
 
 connection.on('open', async () => {
   // delete all users
+  await Todo.deleteMany()
   await User.deleteMany()
   // create new user
   await User.create({

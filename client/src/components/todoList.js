@@ -1,12 +1,20 @@
-// useQuery
+// useQuery use the useQuery hook
+// read ALL_TODOS from database and use for map
 import React from 'react';
-// import addTodoForm from './addTodoForm'
+import {useQuery } from '@apollo/client'
+import { ALL_TODOS } from '../utils/queries';
+
 
 
 const TodoList = ({ todos }) => {
 
+  const { loading, error, data } = useQuery(ALL_TODOS); {
+    variables: { todos }
+  };
 
-  
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
+
   if (!todos.length) {
     return <h3>No Tasks Yet!</h3>;
   }
