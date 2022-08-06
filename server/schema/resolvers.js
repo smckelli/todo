@@ -87,7 +87,14 @@ const resolvers = {
       return await Todo.findByIdAndDelete(args._id)
     },
     updateTodo: async (parent, args, context, info) => {
-      return await Todo.findByIdAndUpdate(args._id)
+      const updateTodo = await Todo.create({ text: args.text, username: context.user.username });
+              await User.findByIdAndUpdate(
+          { _id: args._id },
+          { $push: { todos: updateTodo._id } },
+          { complete: true }
+        );
+
+        return updateTodo
     },
   },
 };

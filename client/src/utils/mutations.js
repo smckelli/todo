@@ -70,6 +70,7 @@ export const UPDATE_TODO = gql`
     updateTodo( _id: $_id, complete: $complete ) {
       _id
       text
+      complete
     }
   }
 `

@@ -21,12 +21,12 @@ const TodoList = (props, { todos }) => {
     ],
   });
 
-  // const [updateTodo] = useMutation(UPDATE_TODO, {
-  //   refetchQueries: [
-  //     {query: ALL_TODOS}, // DocumentNode object parsed with gql
-  //     'ALL_TODOS' // Query name
-  // ],
-  // });
+  const [updateTodo] = useMutation(UPDATE_TODO, {
+    refetchQueries: [
+      {query: ALL_TODOS}, // DocumentNode object parsed with gql
+      'ALL_TODOS' // Query name
+  ],
+  });
 
   const removeTodo = async (_id) => {
     await deleteTodo({
@@ -34,14 +34,12 @@ const TodoList = (props, { todos }) => {
     })
   };
 
-  // const strikeThrough = async (_id, complete) => {
-  //   await updateTodo({
-  //       variables: {_id, complete: true},
-  //   })
-
-  //   console.log(complete)
-
-  // };
+  const strikeThrough = async (_id, complete) => {
+    await updateTodo({
+        variables: {_id, complete},
+    })
+    console.log(strikeThrough)
+  };
 
 
   if (loading) return 'Loading...';
@@ -58,6 +56,7 @@ const TodoList = (props, { todos }) => {
       <ul className="list-group">
         {data.todos.map((todo, i) => {
           const completeClass = todo?.complete ? 'text-decoration-line-through text-primary' : ''
+          
           return (
             <li 
               className="list-group-item d-flex justify-content-between bg-dark text-light fs-4" 
@@ -67,7 +66,10 @@ const TodoList = (props, { todos }) => {
                   className="form-check-input me-3" 
                   type="checkbox" 
                   defaultChecked={todo.complete}
-                  />
+                  onChange={() => {
+                  return strikeThrough(todo.id)
+                  
+                  }}/>
                 <label className={`form-check-label ${completeClass}`}>
                   {todo.text}
                 </label>
