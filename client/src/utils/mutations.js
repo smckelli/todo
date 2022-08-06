@@ -66,8 +66,8 @@ export const DELETE_TODO = gql`
 `
 
 export const UPDATE_TODO = gql`
-  mutation UpdateTodo( $_id: ID ) {
-    updateTodo( _id: $_id ) {
+  mutation UpdateTodo( $_id: ID, $complete: Boolean ) {
+    updateTodo( _id: $_id, complete: $complete ) {
       _id
       text
     }

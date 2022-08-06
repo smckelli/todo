@@ -1,12 +1,12 @@
 // useQuery use the useQuery hook
 // read ALL_TODOS from database and use for map
-import React, {useState} from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom'
 import {useQuery, useMutation } from '@apollo/client'
 import { ALL_TODOS } from '../utils/queries';
 import { UPDATE_TODO, DELETE_TODO } from '../utils/mutations';
 
-const TodoList = ({ todos }) => {
+const TodoList = (props, { todos }) => {
   const { id } = useParams()
   const { loading, error, data } = useQuery(ALL_TODOS, UPDATE_TODO, {
     variables: {
@@ -21,21 +21,27 @@ const TodoList = ({ todos }) => {
     ],
   });
 
+  // const [updateTodo] = useMutation(UPDATE_TODO, {
+  //   refetchQueries: [
+  //     {query: ALL_TODOS}, // DocumentNode object parsed with gql
+  //     'ALL_TODOS' // Query name
+  // ],
+  // });
+
   const removeTodo = async (_id) => {
     await deleteTodo({
         variables: {_id}
     })
   };
 
-  const [checked, setChecked] = useState(false);
-  const handleChange = () => { 
+  // const strikeThrough = async (_id, complete) => {
+  //   await updateTodo({
+  //       variables: {_id, complete: true},
+  //   })
 
-    setChecked(!checked); 
-    
-    console.log('The checkbox was toggled'); 
-    
-  }; 
-  
+  //   console.log(complete)
+
+  // };
 
 
   if (loading) return 'Loading...';
@@ -61,8 +67,7 @@ const TodoList = ({ todos }) => {
                   className="form-check-input me-3" 
                   type="checkbox" 
                   defaultChecked={todo.complete}
-                  onChange={handleChange}
-                />
+                  />
                 <label className={`form-check-label ${completeClass}`}>
                   {todo.text}
                 </label>
