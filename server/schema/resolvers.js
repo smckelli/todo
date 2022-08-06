@@ -86,6 +86,9 @@ const resolvers = {
     deleteTodo: async (parent, args, context, info) => {
       return await Todo.findByIdAndDelete(args._id)
     },
+    updateTodo: async (parent, args, context, info) => {
+      return await Todo.findByIdAndUpdate(args._id)
+    },
   },
 };
 
