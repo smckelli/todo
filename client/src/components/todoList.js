@@ -2,9 +2,9 @@
 // read ALL_TODOS from database and use for map
 import React from 'react';
 import { useParams } from 'react-router-dom'
-import {useQuery } from '@apollo/client'
+import {useQuery, useMutation } from '@apollo/client'
 import { ALL_TODOS } from '../utils/queries';
-// import { DELETE_TODO } from '../utils/mutations';
+import { DELETE_TODO } from '../utils/mutations';
 
 const TodoList = ({ todos }) => {
   const { id } = useParams()
@@ -13,6 +13,19 @@ const TodoList = ({ todos }) => {
       _id: id
     }
   });
+
+  const [deleteTodo] = useMutation(DELETE_TODO, {
+    refetchQueries: [
+        {query: ALL_TODOS}, // DocumentNode object parsed with gql
+        'ALL_TODOS' // Query name
+    ],
+  });
+
+  const removeTodo = async (_id) => {
+    await deleteTodo({
+        variables: {_id}
+    })
+  }
 
 
   if (loading) return 'Loading...';
@@ -43,7 +56,10 @@ const TodoList = ({ todos }) => {
                   {todo.text}
                 </label>
               </div>
-              <button className="btn btn-sm btn-danger">
+              <button className="btn btn-sm btn-danger"
+              onClick={() => {
+                return removeTodo(todo._id);
+              }}>
                 <i class="bi bi-trash3-fill" />
               </button>
             </li>
