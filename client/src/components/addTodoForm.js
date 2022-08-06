@@ -36,7 +36,7 @@ function AddTodoForm() {
         });
   
         // clear form value
-        setText(" ");
+        setText("");
       } catch (e) {
         console.error(e);
       }
@@ -47,7 +47,7 @@ function AddTodoForm() {
       <form className="mb-5"
       onSubmit={handleFormSubmit}>
         <div className="mb-3">
-          <input type="text" className="form-control fs-2" placeholder="New Todo..." 
+          <input type="text" value={text} className="form-control fs-2" placeholder="New Todo..." 
             onChange={handleChange} />
         </div>
         <div className="d-grid">
