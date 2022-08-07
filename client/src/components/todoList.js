@@ -34,9 +34,9 @@ const TodoList = (props, { todos }) => {
     })
   };
 
-  const strikeThrough = async (_id, complete) => {
+  const strikeThrough = async (_id, text, complete) => {
     await updateTodo({
-        variables: {_id, complete: true},
+        variables: {_id, text, complete: true},
     })
   };
   // console.log(updateTodo)
