@@ -36,11 +36,10 @@ const TodoList = (props, { todos }) => {
 
   const strikeThrough = async (_id, complete) => {
     await updateTodo({
-        variables: {_id, complete},
+        variables: {_id, complete: true},
     })
-    console.log(strikeThrough)
   };
-
+  // console.log(updateTodo)
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
@@ -66,10 +65,9 @@ const TodoList = (props, { todos }) => {
                   className="form-check-input me-3" 
                   type="checkbox" 
                   defaultChecked={todo.complete}
-                  onChange={() => {
-                  return strikeThrough(todo.id)
-                  
-                  }}/>
+                  onClick={() => {
+                    return strikeThrough(todo._id)
+                    }}/>
                 <label className={`form-check-label ${completeClass}`}>
                   {todo.text}
                 </label>
