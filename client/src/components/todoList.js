@@ -11,6 +11,7 @@ const TodoList = (props, { todos }) => {
   const { loading, error, data } = useQuery(ALL_TODOS, UPDATE_TODO, {
     variables: {
       _id: id,
+
     }
   });
 
@@ -34,12 +35,23 @@ const TodoList = (props, { todos }) => {
     })
   };
 
-  const strikeThrough = async (_id, text, complete) => {
+  const strikeThrough = async (_id, complete, text) => {
     await updateTodo({
-        variables: {_id, text, complete: true},
+        variables: {_id, complete: true, text},
     })
   };
-  // console.log(updateTodo)
+
+  // const handleChange = async (event) => {
+  //   event.preventDefault();
+
+  //   try {
+  //     await updateTodo({
+  //       variables: { _id, complete: true },
+  //     });
+  //     }catch (e) {
+  //       console.error(e);
+  //     }
+
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
@@ -65,9 +77,10 @@ const TodoList = (props, { todos }) => {
                   className="form-check-input me-3" 
                   type="checkbox" 
                   defaultChecked={todo.complete}
-                  onClick={() => {
-                    return strikeThrough(todo._id)
-                    }}/>
+                  onChange={() => {
+                    return strikeThrough(todo._id, todo.complete, todo.text)
+                    }}
+                  />
                 <label className={`form-check-label ${completeClass}`}>
                   {todo.text}
                 </label>
