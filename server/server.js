@@ -6,6 +6,7 @@ const { typeDefs, resolvers } = require('./schema')
 const { authMiddleware } = require('./utils/auth')
 
 const PORT = 3001;
+
 const server = new ApolloServer({
   typeDefs,
   resolvers,
