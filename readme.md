@@ -1,19 +1,29 @@
-# MERN GraphQL Example
-Mongo/Express/React/Node + GraphQL (Apollo). [Video tutorial](https://zoom.us/rec/play/8DJVFG8PlDpAz-mJGHZz8xxvzNm7BImO6M9iwY3qopLOztdqpb3QfIsG8gpqvrcI-KGrrdLwnwFHRG_c.wYB7fxBuAF4xLvjN?autoplay=true&startTime=1658680353000).
+# Classic To Do List
 
-## General
-* [x] Root package JSON
+The classic, personalized 'To Do' list is a way to organize your tasks as you creat and complete goals throughout your busy day.
 
-## Client
-* [x] CRA
-* [x] React Router
-* [x] Apollo Client
-* [x] GQL Schema 
-* [x] Auth (JWT)
-* [x] Login
+This application is simply a handy way to keep track of those pesky little things that we tend to lose among the larger tasks we get all too focused on. No frills, simple, classic and functional, this 'To Do' app will serve you well.
 
-## Server
-* [x] Express
-* [x] Mongoose (Connection, Models, Seed script)
-* [x] JWT Authentication
-* [x] GQL TypeDefs/Resolvers# todo
+
+## Tutorial
+## User Story
+
+AS A busy person juggling many different responsibilities
+
+I WANT to be able to keep track of those little (and big) things that tend to get overshadowed and abstracted throughout my day.
+
+SO THAT I can be more productive by staying on task.
+
+## Built using
+
+* HTML
+* CSS
+* Bootstrap
+* Javascript
+* React
+* Express
+* MongoDB
+
+## Acknowledgements
+
+Special thank yous to Josh Naylor, Raj Raj, Alex Christenson and Iesha Webster-Harris for allowing the ability to complete this project. I truly appreciate your expert mentorship and leadership.
