@@ -13,16 +13,19 @@ What follows is a series of short videos that will walk thourgh the To Do Applic
 
 ### To Do Application Overview as Deployed to Heroku
 
+https://drive.google.com/file/d/1NdLKkSg285xGMgk1BmjGJoeNy96YWhoI/view
+
 
 ### ApolloGraphQL Walkthrough of the Queries and Mutations involved with the To Do App
 
+https://drive.google.com/file/d/1QHAzCZoa3llYj9O6lE-K8jBqx65lbZKM/view
+
 ### Challenges
 
+https://drive.google.com/file/d/15tcaqaLAwOrGSly3_hlZr2rRpaOXw4D3/view
 
-###
+https://drive.google.com/file/d/1mQHIVf_B4_BvDdJVD36ybBX8JqeXtNGj/view
 
-
-###
 
 ## User Story
 
