@@ -4,8 +4,26 @@ The classic, personalized 'To Do' list is a way to organize your tasks as you cr
 
 This application is simply a handy way to keep track of those pesky little things that we tend to lose among the larger tasks we get all too focused on. No frills, simple, classic and functional, this 'To Do' app will serve you well.
 
+## Deployed Application on Heroku
 
-## Tutorial
+https://peaceful-eyrie-24338.herokuapp.com/
+## Tutorial Videos
+
+What follows is a series of short videos that will walk thourgh the To Do Application as submitted...
+
+### To Do Application Overview as Deployed to Heroku
+
+
+### ApolloGraphQL Walkthrough of the Queries and Mutations involved with the To Do App
+
+### Challenges
+
+
+###
+
+
+###
+
 ## User Story
 
 AS A busy person juggling many different responsibilities
