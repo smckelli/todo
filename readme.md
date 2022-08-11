@@ -47,4 +47,4 @@ SO THAT I can be more productive by staying on task.
 
 ## Acknowledgements
 
-Special thank yous to Josh Naylor, Raj Raj, Alex Christenson and Iesha Webster-Harris for allowing the ability to complete this project. I truly appreciate your expert mentorship and leadership.
+Special thank yous to Josh Naylor, Raj Rai, Alex Christenson and Iesha Webster-Harris for allowing the ability to complete this project. I truly appreciate your expert mentorship and leadership.
